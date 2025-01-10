@@ -7,9 +7,9 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-detail-etudiant',
   standalone: true,
-  imports: [JsonPipe,
-    DatePipe
-  ],
+  imports: [
+    JsonPipe,
+    DatePipe],
   templateUrl: './detail-etudiant.component.html',
   styleUrl: './detail-etudiant.component.scss'
 })
