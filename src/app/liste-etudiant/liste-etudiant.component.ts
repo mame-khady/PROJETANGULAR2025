@@ -40,6 +40,23 @@ export class ListeEtudiantComponent {
     selectEtudiant(e: Etudiant){
       this.selectedEtudiant=e;
     }
+
+    styleRowPair={
+      "color":"white",
+      "background-color":"green",
+      "font-weight":"bold"
+    }
+    styleRowInpair={
+      "color":"white",
+      "background-color":"yellow",
+      "font-weight":"bold"
+    }
+
+    styleRow={
+      "color":"black",
+      "background-color":"brown",
+      "font-weight":"bold"
+    }
 }
 
 
