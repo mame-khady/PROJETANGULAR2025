@@ -16,6 +16,7 @@ export class ListeEtudiantComponent {
   inputType="text";
   inputValue="c'est un input";
   etudiants: Etudiant[]=Listetudiants;
+  selectedEtudiant?: Etudiant;
 
   styleInformatique={
     "color":"green",
@@ -36,6 +37,9 @@ export class ListeEtudiantComponent {
     return this.styleCivil
     }
 
+    selectEtudiant(e: Etudiant){
+      this.selectedEtudiant=e;
+    }
 }
 
 
