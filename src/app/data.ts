@@ -50,7 +50,7 @@ export var etudiant3: Etudiant={
     classe: ing3Info
 }
 
-export var etudiants: Etudiant[]=[
+export var Listetudiants: Etudiant[]=[
     etudiant1,
     etudiant2,
     etudiant3
