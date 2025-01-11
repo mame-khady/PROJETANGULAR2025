@@ -21,6 +21,16 @@ export var ing3Info: Classe={
     nom: "Ing 3 informatique",
     filiere: {code:"INF",nom:"Informatique",depart:depGIT}
 }
+export var ing3Gec: Classe={
+    code: "ING3",
+    nom: "Ing 3 Genie civil",
+    filiere: {code:"Gec",nom:"genie civil",depart:deptGec}
+}
+export var ing3GeM: Classe={
+    code: "ING3",
+    nom: "Ing 3 Genie electromecanique",
+    filiere: {code:"GeM",nom:"genie electromecanique ",depart:deptGeM}
+}
 
 export var etudiant1: Etudiant={
     code:"P3123",
@@ -49,11 +59,30 @@ export var etudiant3: Etudiant={
     telephone:"774108903",
     classe: ing3Info
 }
+export var etudiant4: Etudiant={
+    code:"P3132",
+    nom:"Diop",
+    prenom:"mansour",
+    adresse:"Dakar",
+    email:"mansour@gmail.com",
+    telephone:"77567667",
+    classe: ing3Gec
+}
+export var etudiant5: Etudiant={
+    code:"P3156",
+    nom:"Leye",
+    prenom:"Sofia",
+    adresse:"Bambey",
+    email:"sofia@gmail.com",
+    telephone:"pas de telephone",
+    classe: ing3GeM
+}
 
 export var Listetudiants: Etudiant[]=[
     etudiant1,
     etudiant2,
-    etudiant3
+    etudiant5,
+    etudiant3,etudiant4
 ]
 
 export var carte: Carte={
