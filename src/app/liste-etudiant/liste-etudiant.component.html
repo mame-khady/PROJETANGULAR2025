@@ -2,8 +2,11 @@
     <div class="row">
         <div class="h2 col-12">Liste des Etudiants :</div>
         <div class="col-12">
-            <div *ngFor="let e of etudiants" 
-            [style.background-color]="e.classe.filiere.code=='INF' ? 'rgb(215,236,215)' : 'rgb(200,255,200)'"
+            
+
+           <!-- [style.background-color]="e.classe.filiere.code=='INF' ? 'rgb(215,236,215)' : 'rgb(200,255,200)'"  -->
+           <div *ngFor="let e of etudiants" 
+           [ngStyle]="getEtudiantStyle(e.classe.filiere)"
             class="border border-2 border-primary rounded mt-2 pt-2 pb-5 ">
                <span>etudiant </span>
                <span> {{e.code}} :</span><br>

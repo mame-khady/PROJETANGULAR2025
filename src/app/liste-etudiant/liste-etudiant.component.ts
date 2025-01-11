@@ -1,18 +1,41 @@
 import { Component, input } from '@angular/core';
-import { Etudiant } from '../ipslModele';
+import { Etudiant, Filiere } from '../ipslModele';
 import { Listetudiants } from '../data';
 import { NgFor } from '@angular/common';
 import { NgIf } from '@angular/common';
+import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-liste-etudiant',
-  imports: [ NgFor,NgIf],
+  imports: [ NgFor,NgIf,NgStyle],
   templateUrl: './liste-etudiant.component.html',
   styleUrl: './liste-etudiant.component.scss'
 })
 export class ListeEtudiantComponent {
+
   inputType="text";
   inputValue="c'est un input";
   etudiants: Etudiant[]=Listetudiants;
 
+  styleInformatique={
+    "color":"green",
+    "font-weight":"bold",
+    "background-color":"green"
+  }
+  styleCivil={
+    "color":"white",
+    "font-weight":"bold",
+    "background-color":"red"
+  }
+
+  getEtudiantStyle(filiere: Filiere){ 
+    if (filiere.code=='INF'){
+      return this.styleInformatique;
+      
+    }
+    return this.styleCivil
+    }
+
 }
+
+
