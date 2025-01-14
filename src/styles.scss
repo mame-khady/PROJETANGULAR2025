@@ -8,6 +8,8 @@ $addRowColor: $info;
 
 .rowTable
 {
+    @extend .p-2;
+    @extend .border;
     font-size: $tableRowFontSize;
     font-weight: bold;
     cursor: pointer;
@@ -25,7 +27,7 @@ $addRowColor: $info;
     background-color: $evenRowColor;
     font-style: italic;
     &:hover{
-        background-color: lighten($color: $dark, $amount: 10)
+        background-color: lighten($color: $evenRowColor, $amount: 10)
     }
 
 
@@ -35,7 +37,7 @@ $addRowColor: $info;
     @extend .text-dark;
     background-color: $addRowColor;
     &:hover{
-        background-color: lighten($color: $dark, $amount: 10)
+        background-color: lighten($color: $addRowColor, $amount: 10)
     }
 
 }

@@ -1,0 +1,46 @@
+<form #etudiantForm="ngForm" class="mx-auto p-2 border" style="width: 500px;">
+    <div class="form-floating mb-3">
+        <input type="text" name="code" [(ngModel)]="etudiant.code" class="form-control" id="formCode" placeholder="P2...">
+        <label for="formCode" class="form-label">Code</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" name="nom" [(ngModel)]="etudiant.code" class="form-control" id="formNom" placeholder="votre nom">
+        <label for="formNom" class="form-label">Nom</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input typ="text" class="form-control" id="formPrenom" placeholder="votre prenom">
+        <label for="formPrenom" class="form-label">Prenom</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="formAdresse" placeholder="votre adresse">
+        <label for="formAdresse" class="form-label">Adresse</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="formTel" placeholder="+221 77 567 45 67">
+        <label for="formTel" class="form-label">Telephone</label>
+      </div>
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="formTel" placeholder="ING3 GIT">
+        <label for="formTel" class="form-label">Classe</label>
+      </div>
+      <div class="form-floating mb-3">
+        <select class="form-select" id=""
+        (change)="listeFiliere()"
+            >
+            <option value="">choisir un departement</option>
+            <option *ngFor="let dept of listeDep" [value]="dept.code">{{dept.nom}}</option>
+        </select>
+      </div>
+      <div class="form-floating mb-3">
+        <select class="form-select" id="">
+            <option value="">choisir un filiere</option>
+            <option *ngFor="let fil of listeFilieres" [value]="fil.code">{{fil.nom}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary mx-auto col-6 d-grid gap-2 mb-3">Ajouter</button>
+      <button type="submit" class="btn btn-primary mx-auto col-6 d-grid gap-2">Annuler</button>
+</form>

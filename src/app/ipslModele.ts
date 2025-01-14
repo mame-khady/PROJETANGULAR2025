@@ -28,6 +28,17 @@ export interface Etudiant{
     email: String;
     classe: Classe;
 }
+export interface EtudiantDTO{
+    code:String;
+    nom:String;
+    prenom:String;
+    adresse:String;
+    telephone: String;
+    email: String;
+    codeClasse: String;
+    codeFiliere: String;
+    codeDep: String
+}
 
 export interface Carte{
     id: number;
