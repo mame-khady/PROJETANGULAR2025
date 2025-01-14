@@ -1,30 +1,87 @@
-<form #etudiantForm="ngForm" class="mx-auto p-2 border" style="width: 500px;">
+
+<form #etudiantForm="ngForm" (ngSubmit)="enregistrer()"
+class="mx-auto p-2 border" style="width: 500px;">
+  <div class="h2">Formulaire D'inscription</div>
+  {{etudiantForm.value | json}}
+ <!-- <div>
+  touched = {{etudiantForm.touched}} <br>
+  untouched = {{etudiantForm.untouched}} <br>
+  pristine = {{etudiantForm.pristine}} <br>
+  dirty = {{etudiantForm.dirty}} <br>
+  errors = {{etudiantForm.errors}} <br>
+  valid = {{etudiantForm.valid}} <br>
+  invalid = {{etudiantForm.invalid}} <br>
+</div> -->
     <div class="form-floating mb-3">
-        <input type="text" name="code" [(ngModel)]="etudiant.code" class="form-control" id="formCode" placeholder="P2...">
+        <input type="text" 
+        name="code" 
+        #code="ngModel"
+        [(ngModel)]="etudiant.code" 
+        class="form-control"
+        [class.is-valid]="code.valid && code.dirty"
+        [class.is-invalid]="code.invalid && code.pristine"
+         id="formCode" placeholder="P2...">
         <label for="formCode" class="form-label">Code</label>
+        <div>
+          touched code = {{code.touched}}
+        </div>
       </div>
       <div class="form-floating mb-3">
-        <input type="text" name="nom" [(ngModel)]="etudiant.code" class="form-control" id="formNom" placeholder="votre nom">
+        <input type="text"
+         name="nom" 
+         #nom="ngModel"
+         [(ngModel)]="etudiant.nom"
+        class="form-control" 
+        [class.is-valid]="nom.valid && nom.touched"
+        [class.is-invalid]="nom.invalid && nom.untouched"
+        required id="formNom" placeholder="votre nom">
         <label for="formNom" class="form-label">Nom</label>
       </div>
       <div class="form-floating mb-3">
-        <input typ="text" class="form-control" id="formPrenom" placeholder="votre prenom">
+        <input typ="text"
+         name="prenom" 
+         #prenom="ngModel"
+         required 
+         [(ngModel)]="etudiant.prenom" 
+         class="form-control" 
+         [class.is-valid]="prenom.valid && prenom.dirty"
+        [class.is-invalid]="prenom.invalid && prenom.pristine"
+          id="formPrenom" placeholder="votre prenom">
         <label for="formPrenom" class="form-label">Prenom</label>
       </div>
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="formAdresse" placeholder="votre adresse">
+        <input type="text"
+         name="adresse" 
+         #adresse="ngModel"
+         [(ngModel)]="etudiant.adresse"
+          class="form-control" required id="formAdresse"
+          placeholder="votre adresse">
         <label for="formAdresse" class="form-label">Adresse</label>
       </div>
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="formTel" placeholder="+221 77 567 45 67">
+        <input type="text"
+         name="Telephone"
+         #telephone="ngModel"
+          [(ngModel)]="etudiant.telephone"
+           class="form-control" id="formTel" placeholder="+221 77 567 45 67">
         <label for="formTel" class="form-label">Telephone</label>
       </div>
     <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input type="email"
+         name="email" 
+         [(ngModel)]="etudiant.email" 
+         class="form-control" 
+         id="floatingInput" 
+         placeholder="name@example.com">
         <label for="floatingInput">Email</label>
       </div>
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="formTel" placeholder="ING3 GIT">
+        <select name="classe" [(ngModel)]="etudiant.codeClasse" type="text" class="form-control" id="formTel" placeholder="ING3 GIT">
+          <option value="" selected>Choisr une classe</option>
+          <option value="ING1">ING1</option>
+          <option value="ING2">ING2</option>
+          <option value="ING3">ING3</option>
+        </select>
         <label for="formTel" class="form-label">Classe</label>
       </div>
       <div class="form-floating mb-3">
@@ -41,6 +98,8 @@
             <option *ngFor="let fil of listeFilieres" [value]="fil.code">{{fil.nom}}</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary mx-auto col-6 d-grid gap-2 mb-3">Ajouter</button>
-      <button type="submit" class="btn btn-primary mx-auto col-6 d-grid gap-2">Annuler</button>
+      <button type="submit" class="btn btn-primary mx-auto col-6 d-grid gap-2 mb-3"
+       [disabled]="etudiantForm.invalid">Ajouter</button>
+      <button type="submit"
+       class="btn btn-primary mx-auto col-6 d-grid gap-2">Annuler</button>
 </form>
