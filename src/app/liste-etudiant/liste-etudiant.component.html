@@ -2,7 +2,7 @@
     <div class="row">
         <div class="h2 col-12">Liste des Étudiants :</div>
         <div class="col-12">
-            <table class="table-bordered w-100 ">
+            <table class="ipslTable table-bordered w-100 ">
                 <thead>
                     <tr >
                         <th >#</th>
@@ -16,16 +16,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr 
-                        *ngFor="let e of etudiants; let i = index"
-                        [ngStyle]="
+                     <!-- [ngStyle]="
                             selectedEtudiant?.code == e.code
                                 ? styleRow
                                 : i % 2 == 0
                                 ? styleRowPair
-                                : styleRowInpair
-                        "
+                                : styleRowInpair" -->
+                    <tr 
+                        
+                        *ngFor="let e of etudiants; let i = index"
+                        [class.even]="i % 2 == 0"
+                        [class.add]="i % 2 != 0"
+                        [class.selectedRow]="selectedEtudiant?.code==e.code"
                         (click)="selectEtudiant(e)">
+                        
                         <td>{{ i + 1 }}</td>
                         <td>{{ e.code }}</td>
                         <td>{{ e.prenom }}</td>
@@ -35,7 +39,7 @@
                         <td>{{ e.classe.nom }}</td>
                         <td>
                             <div style="float: right;" *ngIf="selectedEtudiant?.code === e.code" >
-                                <button type="button" class="btn btn-link mx-2" [disabled]="e.classe.filiere.code != 'INF'">
+                                <button type="button" [class.btn]="true" class="btn btn-link mx-2" [disabled]="e.classe.filiere.code != 'INF'">
                                     Détail
                                 </button>
                                 <button type="button" class="btn btn-primary mx-2" [disabled]="e.classe.filiere.code != 'INF'">

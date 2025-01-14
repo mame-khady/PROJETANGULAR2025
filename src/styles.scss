@@ -1,6 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
 @import "ipslvar";
 @import "../node_modules/bootstrap/scss/bootstrap";
+$evenRowColor: $success;
+
+$addRowColor: $info;
+
+
+.rowTable
+{
+    font-size: $tableRowFontSize;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.ipslTable{
+    
+    .even
+{
+    @extend .rowTable;
+    @extend .text-light;
+    background-color: $evenRowColor;
+    font-style: italic;
+    &:hover{
+        background-color: lighten($color: $dark, $amount: 10)
+    }
+
+
+}
+.add{
+    @extend .rowTable;
+    @extend .text-dark;
+    background-color: $addRowColor;
+    &:hover{
+        background-color: lighten($color: $dark, $amount: 10)
+    }
+
+}
+}
 
 .active{
     color: rgb(208, 255, 0);
@@ -16,4 +55,11 @@
     @extend .ipslValue;
     @extend .text-primary;
     text-decoration: underline;
+}
+
+
+.selectedRow{
+    @extend .rowTable;
+    @extend .bg-primary;
+    @extend .text-light;
 }
